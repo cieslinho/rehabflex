@@ -1,0 +1,298 @@
+.header {
+	position: relative;
+	// margin-top: 60px;
+	height: 100vh;
+
+	@include respond(tablet) {
+		margin: 0 auto;
+		margin-top: 116px;
+		max-width: 1600px;
+		height: 75vh;
+
+		@include section-padding;
+		// padding-bottom: 0 !important;
+	}
+
+	@include respond(tablet-xl) {
+		margin-top: 154px;
+	}
+
+	&__boxes {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		@include respond(tablet) {
+			flex-direction: row;
+			// display: grid;
+			// grid-template-rows: 1fr;
+			// grid-template-columns: repeat(2, 1fr);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+	}
+
+	&__swiper {
+		@include respond(tablet) {
+			height: 75vh;
+		}
+	}
+
+	&__box {
+		width: 100%;
+		// height: 100%;
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			// z-index: -2000;
+			background-color: rgba($color: $black, $alpha: 0.6);
+			width: 100%;
+			height: 100%;
+			content: '';
+
+			@include respond(tablet) {
+				background-image: url('http://rehabflex.local/wp-content/uploads/2024/05/13-scaled.jpg');
+				background-size: cover;
+				background-color: $blue;
+			}
+		}
+
+		@include respond(tablet) {
+			&::after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba($color: $blue, $alpha: 0.8);
+				width: 100%;
+				height: 100%;
+				content: '';
+			}
+		}
+
+		&-right {
+			display: flex;
+			position: relative;
+			z-index: 20;
+			width: 100%;
+			height: 100%;
+
+			@include respond(tablet) {
+				width: 50%;
+			}
+		}
+
+		&-left {
+			// display: none;
+			// background-color: black;
+
+			@include respond(tablet) {
+				position: relative;
+				width: 50%;
+			}
+		}
+
+		@include respond(tablet) {
+			position: relative;
+		}
+	}
+
+	.swiper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.swiper-slide {
+		// position: absolute;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__pagination {
+		display: none;
+
+		@include respond(tablet) {
+			display: block;
+			bottom: 20px !important;
+		}
+
+		.swiper-pagination-bullet {
+			border-radius: 0;
+			border-radius: 3px;
+			background-color: $white;
+			width: 30px;
+			height: 3px;
+		}
+	}
+
+	// &__button {
+	// 	display: none;
+	// 	// padding: 1em;
+	// 	color: $white;
+
+	// 	&::after {
+	// 		border: 2px solid $white;
+	// 		border-radius: 50%;
+	// 		padding: 0.5em;
+	// 		font-size: 1.8rem;
+	// 	}
+
+	// 	@include respond(tablet) {
+	// 		display: flex;
+	// 		justify-content: center;
+	// 		align-items: center;
+	// 	}
+	// }
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+		@include respond(tablet) {
+			position: unset;
+			width: 100%;
+		}
+	}
+
+	&__texts {
+		display: flex;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.8em;
+		transform: translate((-50%, -50%));
+		z-index: 20;
+		padding: 1em;
+		width: 100%;
+		text-align: center;
+
+		@include respond(tablet) {
+			gap: 1em;
+		}
+	}
+
+	&__title {
+		color: $white;
+	}
+
+	&__text {
+		color: $white;
+		line-height: 160%;
+	}
+
+	&__btn {
+		transition: background-color 0.2s;
+		border-radius: 5px;
+		background-color: $blue;
+		padding: 0.8em 1.6em;
+		color: $white;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+
+		@include respond(tablet) {
+			background-color: $white;
+			color: $blue;
+			font-weight: 700;
+		}
+
+		&:hover {
+			background-color: $white;
+			color: $blue;
+
+			@include respond(tablet) {
+			}
+		}
+	}
+
+	&__form {
+		display: none;
+		position: absolute;
+		top: 72%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 5px;
+		background-color: rgba($color: $white, $alpha: 0.2);
+		padding: 1em 1em;
+		width: 90%;
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+
+			.row {
+				display: flex;
+				gap: 1em;
+
+				&-last {
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					.header__btn {
+						cursor: pointer;
+						background-color: $white;
+						color: $blue;
+					}
+
+					textarea {
+						width: 100%;
+					}
+				}
+
+				span {
+					width: 100%;
+				}
+			}
+
+			.wpcf7-response-output {
+				margin-top: 0;
+				color: $white;
+				text-align: center;
+			}
+		}
+	}
+
+	&__input,
+	&__textarea,
+	&__picker {
+		border-radius: 5px;
+		background-color: rgba($color: $blue, $alpha: 0.8);
+		padding: 0.4em 0.8em;
+		// display: block;
+		width: 100%;
+		color: $white;
+		font-size: 1.3rem;
+
+		&::placeholder {
+			color: $white;
+		}
+	}
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border-color: red;
+}

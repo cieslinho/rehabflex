@@ -70,20 +70,36 @@ add_theme_support('post-thumbnails', array(
     }
   
 
-    function add_additional_class($classes, $item, $args){
-      if(isset($args->add_li_class)){
-          $classes[] = $args->add_li_class;
+    function li_menu_class($classes, $item, $args) {
+      if($args->theme_location == 'rehabflex_main_menu') {
+        $classes[] = 'nav__item';
+      }
+      if($args->theme_location == 'rehabflex_footer_info_menu') {
+        $classes[] = 'footer__item';
       }
       return $classes;
-  }
-  
-  add_filter('nav_menu_css_class', 'add_additional_class', 1, 3);
+    }
+    add_filter('nav_menu_css_class','li_menu_class',1,3);
 
-  add_filter('wpcf7_autop_or_not', '__return_false');
 
-  add_filter('wpcf7_autop_or_not', '__return_false');    
-    add_filter('wpcf7_form_elements', function($content) {  
-   $find = ['/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '/<(span).*?class="\s*(?:.*\s)?wpcf7-checkbox(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i' , '/<(span).*?class="\s*(?:.*\s)?wpcf7-list-item(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i'];   
-     $content = preg_replace( $find, '\2', $content);
-               return $content; 
-    });
+    function add_class_on_a_tag_first($classes, $item, $args)
+    {
+        if (isset($args->add_a_class)) {
+            $classes['class'] = $args->add_a_class;
+        }
+    return $classes;
+    }
+    
+    
+    add_filter('nav_menu_link_attributes', 'add_class_on_a_tag_first', 1, 3);
+
+
+
+    add_filter('wpcf7_autop_or_not', '__return_false');
+
+    // add_filter('wpcf7_autop_or_not', '__return_false');    
+    //   add_filter('wpcf7_form_elements', function($content) {  
+    //  $find = ['/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '/<(span).*?class="\s*(?:.*\s)?wpcf7-checkbox(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i' , '/<(span).*?class="\s*(?:.*\s)?wpcf7-list-item(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i'];   
+    //    $content = preg_replace( $find, '\2', $content);
+    //              return $content; 
+    //   });

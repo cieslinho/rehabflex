@@ -1,0 +1,181 @@
+.contact {
+	@include section-padding;
+	background-color: $gray;
+
+	&__boxes {
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 0 10px rgba($color: $black, $alpha: 0.1);
+		border-radius: 10px;
+		overflow: hidden;
+		// gap: 1em;
+
+		@include respond(tablet) {
+			display: grid;
+			grid-template-rows: 1fr;
+			grid-template-columns: 1.5fr 2fr;
+		}
+	}
+
+	&__info {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1em;
+		z-index: 20;
+		background-color: $blue;
+		padding: 1em 2em;
+	}
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.2;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__text {
+		color: $white;
+		line-height: 160%;
+		span {
+			font-weight: 700;
+		}
+	}
+
+	&__link {
+		display: flex;
+		position: relative;
+		align-items: center;
+		gap: 0.3em;
+		padding-bottom: 0.5em;
+		// border-bottom: 1px solid transparent;
+		color: $white;
+		font-weight: 700;
+
+		&::after {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transition: width 0.3s;
+			background-color: $white;
+			width: 0;
+			height: 1px;
+			content: '';
+		}
+
+		&:hover {
+			&::after {
+				width: 100%;
+			}
+		}
+
+		@include respond(tablet) {
+			gap: 1em;
+		}
+
+		svg {
+			fill: $white;
+			width: 18px;
+			height: 18px;
+
+			@include respond(tablet) {
+				width: 25px;
+				height: 25px;
+			}
+
+			g {
+				fill: $white;
+			}
+		}
+	}
+
+	&__socials {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	&__hashtag {
+		color: $white;
+		font-style: italic;
+		font-weight: 700;
+	}
+
+	&__form {
+		background-color: $white;
+		padding: 1em 2em;
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+
+			@include respond(tablet) {
+				flex-direction: row;
+			}
+
+			&-last {
+				flex-direction: column;
+			}
+		}
+	}
+
+	&__input,
+	&__select,
+	&__textarea {
+		border: 2px solid $blue;
+		border-radius: 10px;
+		padding: 0.5em 1em;
+		width: 100%;
+	}
+
+	&__btn {
+		cursor: pointer;
+		border-radius: 10px;
+		background-color: $blue;
+		padding: 1em 2em;
+		color: $white;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.wpcf7-form-control-wrap {
+		width: 100%;
+	}
+
+	.wpcf7-not-valid-tip {
+		padding: 0.5em 1em;
+		font-size: 1.4rem;
+	}
+
+	.wpcf7-spinner {
+		margin: 0 auto !important;
+	}
+
+	.wpcf7-response-output {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		border-radius: 10px;
+		padding: 1em 2em !important;
+		color: $white;
+		font-size: 1.4rem;
+	}
+
+	form.invalid .wpcf7-response-output {
+		background-color: $red;
+	}
+
+	form.sent .wpcf7-response-output {
+		background-color: #3cad3c;
+	}
+}
