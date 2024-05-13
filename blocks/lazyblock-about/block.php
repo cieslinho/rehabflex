@@ -147,7 +147,7 @@
             </div>
             <div class="about__video">
                 <video autoplay loop muted controls
-                    src="http://rehabflex.local/wp-content/uploads/2024/05/IMG_2.mov"></video>
+                    src="<?php echo esc_url( $attributes['video']['url'] ); ?>"></video>
             </div>
         </div>
     </div>

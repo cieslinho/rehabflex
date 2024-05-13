@@ -85,5 +85,15 @@
 		@include respond(tablet-xl) {
 			text-align: left;
 		}
+
+		a {
+			border-bottom: 1px solid $gray;
+			color: $white;
+		}
+	}
+
+	&__link {
+		border-bottom: 1px solid $gray;
+		color: $white;
 	}
 }

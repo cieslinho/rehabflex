@@ -12,7 +12,7 @@
                 </div>
                 <div class="how__bottom">
                     <p class="how__text">
-                        Zadzwoń pod numer 501 483 238 lub wypełnij formularz kontaktowy to my zadzwonimy do Ciebie
+                        Zadzwoń pod numer <a class="how__link" href="tel:+48501483238">501 483 238</a> lub <a href="#kontakt">wypełnij formularz kontaktowy</a> to my zadzwonimy do Ciebie
                     </p>
                 </div>
 

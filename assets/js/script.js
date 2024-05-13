@@ -2,6 +2,7 @@ const navBtn = document.querySelector('.nav__btn')
 const menu = document.querySelector('.nav__menu')
 const navOverlay = document.querySelector('.nav__overlay')
 const navLinks = document.querySelectorAll('.nav__link')
+const navBottom = document.querySelector('.nav__bottom')
 
 const handleNav = () => {
 	navBtn.classList.toggle('active')
@@ -88,6 +89,24 @@ var gallerySwiper = new Swiper('.gallery__swiper', {
 			// spaceBetween: 10,
 		},
 	},
+})
+
+let prevScrollPos = window.pageYOffset
+
+window.addEventListener('scroll', function () {
+	// current scroll position
+	const currentScrollPos = window.pageYOffset
+
+	if (prevScrollPos > currentScrollPos) {
+		// user has scrolled up
+		navBottom.classList.remove('hide')
+	} else {
+		// user has scrolled down
+		navBottom.classList.add('hide')
+	}
+
+	// update previous scroll position
+	prevScrollPos = currentScrollPos
 })
 
 navBtn.addEventListener('click', handleNav)

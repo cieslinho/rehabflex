@@ -302,6 +302,8 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
+		transition: transform 0.3s ease-in;
+		box-shadow: 0 1px 15px rgba($color: $black, $alpha: 0.2);
 		width: 100%;
 		font-weight: 700;
 
@@ -324,5 +326,9 @@
 			background-color: $blue;
 			color: $white;
 		}
+	}
+
+	&__bottom.hide {
+		transform: translateY(101%);
 	}
 }
